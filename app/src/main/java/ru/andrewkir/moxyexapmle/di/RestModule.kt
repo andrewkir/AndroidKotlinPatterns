@@ -56,6 +56,7 @@ class RestModule {
     @Provides
     @Singleton
     fun provideOkHttpClient() : OkHttpClient {
+        Log.d("AUTH", "back at it again")
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         val client =  OkHttpClient.Builder()
             .addInterceptor(HeaderAccessTokenInterceptor())
@@ -67,21 +68,24 @@ class RestModule {
             override fun authenticate(route: Route?, response: Response): Request? {
                 // check if "the failed request Authorization key" is different from new authorization key
                 // to prevent looping the request for new key
-                if (!response.request.header("Authorization").equals(prefs.user.access_token)) {
+                if (!response.request.header("Authorization").equals("Bearer " + prefs.user.access_token)) {
                     return null // stop the authenticator from trying to renew the authorization key
                 }
                 // request new key
+                Log.d("AUTH", "try to refresh")
                 var accessToken: String? = null
                 val apiService = getRetrofitRefresh().create(MainApi::class.java)
                 val call = apiService.requestAccessToken()
                 try {
                     val responseCall = call.execute()
+                    Log.d("AUTH RESPONSE CALL", responseCall.message().toString())
                     accessToken = responseCall.body()?.access_token
                     val user = prefs.user
+//                    Log.d("AUTH RESPONSE", accessToken)
                     user.access_token = accessToken!!.toString()
                     prefs.saveUser(user)
                 } catch (ex: Exception) {
-                    Log.d("ERROR", "onResponse: $ex")
+                    Log.d("AUTH ERROR", "onResponse: $ex")
                 }
                 return if (accessToken != null) {
                     // retry the failed 401 request with new access token

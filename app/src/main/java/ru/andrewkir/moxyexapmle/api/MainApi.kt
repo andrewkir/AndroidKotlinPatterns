@@ -31,9 +31,7 @@ interface MainApi {
 
 
     @POST(REFRESH_TOKEN)
-    fun requestAccessToken(
-
-    ): Call<TokenResponse>
+    fun requestAccessToken(): Call<TokenResponse>
 
     @GET("getuser")
     fun getUser(): Observable<DefaultResponse>

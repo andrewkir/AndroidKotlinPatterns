@@ -57,9 +57,13 @@ class RegisterPresenter: MvpPresenter<AuthView>() {
                 viewState.updateResultData(it.message)
                 prefs.saveUser(it.message)
             }, {
-                viewState.showError(it.message.toString())
                 viewState.endReceiving(it.message.toString())
                 it.printStackTrace()
+                if(it::class.java == java.net.UnknownHostException::class.java){
+                    viewState.showError("Please check the connection")
+                } else {
+                    viewState.showError("The fuck is this")
+                }
             })
     }
 

@@ -1,6 +1,8 @@
 package ru.andrewkir.moxyexapmle.presenters
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.widget.Toast
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -40,9 +42,13 @@ class LoginPresenter: MvpPresenter<AuthView>() {
                 viewState.endReceiving(it.message.toString())
                 App.prefs.saveUser(it.message)
             }, {
-                viewState.showError(it.message.toString())
                 viewState.endReceiving(it.message.toString())
                 it.printStackTrace()
+                if(it::class.java == java.net.UnknownHostException::class.java){
+                    viewState.showError("Please check the connection")
+                } else {
+                    viewState.showError("The fuck is this")
+                }
             })
     }
 }
