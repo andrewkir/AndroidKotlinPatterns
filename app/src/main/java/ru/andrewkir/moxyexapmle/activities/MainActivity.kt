@@ -54,6 +54,10 @@ class MainActivity : AppCompatActivity() {
             refreshText.setText(prefs.user.refresh_token)
         }
 
+        exDbButton.setOnClickListener {
+            startActivity(Intent(this, DbActivity::class.java))
+        }
+
         checkToken.setOnClickListener {
             mainApi.getUser()//DEBUG
                 .delay(2, TimeUnit.SECONDS)

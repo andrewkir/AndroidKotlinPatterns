@@ -1,115 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activities.MainActivity">
+        android:layout_height="match_parent">
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <android.support.constraint.ConstraintLayout
 
-    <Button
-            android:text="REGISTER"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/exRegisterButton" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginTop="32dp"
-            app:layout_constraintTop_toTopOf="parent"/>
-    <Button
-            android:text="Login"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/exLoginButton" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/exRegisterButton" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"/>
-    <TextView
-            android:text="Current status: "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toStartOf="@+id/mainStatus"
-            app:layout_constraintHorizontal_chainStyle="packed" android:layout_marginTop="60dp"
-            app:layout_constraintTop_toBottomOf="@+id/exLoginButton"/>
-    <TextView
-            android:text="OFFLINE"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/mainStatus"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView" app:layout_constraintBottom_toBottomOf="@+id/textView"/>
-    <TextView
-            android:text="User: "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView3"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toStartOf="@+id/statusName" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintHorizontal_chainStyle="packed"/>
-    <TextView
-            android:text="username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/statusName" app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView3" app:layout_constraintBottom_toBottomOf="@+id/textView3"/>
-    <Button
-            android:text="LOGOUT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/statusLogout"
-            app:layout_constraintStart_toEndOf="@+id/statusUpdate" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/statusUpdate"
-            app:layout_constraintBottom_toBottomOf="@+id/statusUpdate"/>
-    <Button
-            android:text="Update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/statusUpdate" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/statusLogout"
-            app:layout_constraintHorizontal_chainStyle="packed" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"/>
-    <Button
-            android:text="getToken"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/exStatusToken"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toStartOf="@+id/tokenSave"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/refreshText"/>
-    <Button
-            android:text="checktoken"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkToken" app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-    <EditText
-            android:text="token"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tokenText" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/statusUpdate" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
-    <Button
-            android:text="save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tokenSave"
-            app:layout_constraintStart_toEndOf="@+id/exStatusToken" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/exStatusToken"
-            app:layout_constraintBottom_toBottomOf="@+id/exStatusToken"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="refresh"
-            android:id="@+id/refreshText" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tokenText" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
-</android.support.constraint.ConstraintLayout>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".activities.MainActivity">
+
+            <Button
+                    android:text="REGISTER"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/exRegisterButton" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            <Button
+                    android:text="Login"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/exLoginButton" android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/exRegisterButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="16dp"/>
+            <Button
+                    android:text="DataBase"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/exDbButton"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/exLoginButton"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="Current status: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toStartOf="@+id/mainStatus"
+                    app:layout_constraintHorizontal_chainStyle="packed" android:layout_marginTop="60dp"
+                    app:layout_constraintTop_toBottomOf="@+id/exLoginButton"/>
+            <TextView
+                    android:text="OFFLINE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mainStatus"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView"/>
+            <TextView
+                    android:text="User: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView3"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toStartOf="@+id/statusName" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    app:layout_constraintHorizontal_chainStyle="packed"/>
+            <TextView
+                    android:text="username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/statusName" app:layout_constraintStart_toEndOf="@+id/textView3"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView3"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView3"/>
+            <Button
+                    android:text="LOGOUT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/statusLogout"
+                    app:layout_constraintStart_toEndOf="@+id/statusUpdate" app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/statusUpdate"
+                    app:layout_constraintBottom_toBottomOf="@+id/statusUpdate"/>
+            <Button
+                    android:text="Update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/statusUpdate" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/statusLogout"
+                    app:layout_constraintHorizontal_chainStyle="packed" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3"/>
+            <Button
+                    android:text="getToken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/exStatusToken"
+                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toStartOf="@+id/checkToken"
+                    app:layout_constraintTop_toBottomOf="@+id/refreshText" app:layout_constraintVertical_bias="1.0"
+                    android:layout_marginTop="24dp"/>
+            <Button
+                    android:text="checktoken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkToken"
+                    app:layout_constraintBottom_toBottomOf="@+id/exStatusToken"
+                    android:layout_marginBottom="8dp" app:layout_constraintStart_toEndOf="@+id/exStatusToken"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/tokenSave"
+                    app:layout_constraintTop_toTopOf="@+id/exStatusToken" app:layout_constraintVertical_bias="0.0"/>
+            <EditText
+                    android:text="token"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tokenText" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/statusUpdate"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"/>
+            <Button
+                    android:text="save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tokenSave"
+                    app:layout_constraintStart_toEndOf="@+id/checkToken"
+                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/checkToken"
+                    app:layout_constraintBottom_toBottomOf="@+id/checkToken"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="refresh"
+                    android:id="@+id/refreshText" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tokenText" android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

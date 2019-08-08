@@ -5,7 +5,6 @@ import ru.andrewkir.moxyexapmle.activities.MainActivity
 import ru.andrewkir.moxyexapmle.activities.RegisterActivity
 import ru.andrewkir.moxyexapmle.presenters.LoginPresenter
 import ru.andrewkir.moxyexapmle.presenters.RegisterPresenter
-import ru.andrewkir.moxyexapmle.utils.SharedPrefManager
 import javax.inject.Singleton
 
 @Component(modules = arrayOf(RestModule::class, AppModule::class))

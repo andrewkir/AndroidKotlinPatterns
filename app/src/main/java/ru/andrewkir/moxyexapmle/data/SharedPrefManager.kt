@@ -1,12 +1,7 @@
-package ru.andrewkir.moxyexapmle.utils
+package ru.andrewkir.moxyexapmle.data
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
-import ru.andrewkir.moxyexapmle.di.App
-import ru.andrewkir.moxyexapmle.di.AppModule
 import ru.andrewkir.moxyexapmle.models.User
-import javax.inject.Inject
 
 class SharedPrefManager  private constructor(private val context: Context) {
 
@@ -60,7 +55,8 @@ class SharedPrefManager  private constructor(private val context: Context) {
         @Synchronized
         fun getInstance(mCtx: Context): SharedPrefManager {
             if (mInstance == null) {
-                mInstance = SharedPrefManager(mCtx)
+                mInstance =
+                    SharedPrefManager(mCtx)
             }
             return mInstance as SharedPrefManager
         }

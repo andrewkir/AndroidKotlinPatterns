@@ -1,7 +1,9 @@
 package ru.andrewkir.moxyexapmle.di
 
 import android.app.Application
-import ru.andrewkir.moxyexapmle.utils.SharedPrefManager
+import io.realm.Realm
+import io.realm.RealmConfiguration
+import ru.andrewkir.moxyexapmle.data.SharedPrefManager
 
 class App : Application() {
 
@@ -11,9 +13,13 @@ class App : Application() {
     }
 
     override fun onCreate() {
-        prefs = SharedPrefManager.getInstance(applicationContext)
-        super.onCreate()
+        Realm.init(this)
+        val config = RealmConfiguration.Builder()
+            .name("mylist.realm").build()
+        Realm.setDefaultConfiguration(config)
 
+        super.onCreate()
+        prefs = SharedPrefManager.getInstance(applicationContext)
         initializeDagger()
     }
 

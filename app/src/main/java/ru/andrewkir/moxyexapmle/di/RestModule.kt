@@ -90,7 +90,7 @@ class RestModule {
                 return if (accessToken != null) {
                     // retry the failed 401 request with new access token
                     response.request.newBuilder()
-                        .header("Authorization", accessToken) // use the new access token
+                        .header("Authorization", "Bearer $accessToken") // use the new access token
                         .build()
                 } else
                     null
